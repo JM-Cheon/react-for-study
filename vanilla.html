@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span>Total Clicks: 0</span>
+    <button id="btn">Click me</button>
+  </body>
+  <script>
+    window.onload = function () {
+      let counter = 0;
+      const button = document.querySelector("button");
+      const span = document.querySelector("span");
+      const handleClick = () => {
+        counter = counter + 1;
+        span.innerText = `Total Clicks: ${counter}`;
+      };
+      button.addEventListener("click", handleClick);
+    };
+  </script>
+</html>
