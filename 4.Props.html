@@ -9,19 +9,34 @@
   </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function SaveBtn() {
-      return <button>Save Changes</button>;
+    function Btn({ text, fontSize = 14 }) {
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize,
+          }}
+        >
+          {text}
+        </button>
+      );
     }
-    function ConfirmBtn() {
-      return <button>Confirm</button>;
-    }
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
     function App() {
       return (
         <div>
-          <SaveBtn />
-          <ConfirmBtn />
+          <Btn text="Save Changes" fontSize={18} />
+          <Btn text="Changes" />
         </div>
       );
     }
